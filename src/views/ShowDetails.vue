@@ -66,7 +66,7 @@ export default {
 <style scoped>
 .show-details {
   min-height: 100%;
-  padding-top: 60.67px;
+  padding-top: 52.67px;
   padding-bottom: 24px;
 }
 .main-container {

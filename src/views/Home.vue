@@ -8,7 +8,19 @@
             <show-card :show="show"></show-card>
           </div>
         </div>
-      </div>  
+      </div>
+
+      <div class="show-container">
+        <h4><b>Shows By Genre</b></h4>
+        <div class="genre-container" v-for="(shows, genre) in getShowsByGenres" :key="genre">
+          <h4>{{genre}} Shows</h4>
+          <div class="shows">
+            <div class="show" v-for="show in shows" :key="show.id">
+              <show-card :show="show"></show-card>
+            </div>
+          </div>
+        </div>
+      </div> 
     </div>
 
     <div v-else-if="!isLoading && error">
@@ -42,7 +54,7 @@ export default {
     this.getAllShows();
   },
   computed: {
-    ...mapGetters(['getTop20Shows']),
+    ...mapGetters(['getTop20Shows', 'getShowsByGenres']),
   },
   methods: {
     async getAllShows() {
@@ -69,6 +81,9 @@ export default {
 }
 .show-container {
   margin: 20px 0px;
+}
+.genre-container {
+  margin-bottom: 20px;
 }
 .shows {
   display: flex;

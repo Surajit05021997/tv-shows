@@ -18,4 +18,29 @@ export default {
     }
     return top20Shows;
   },
+  getShowsByGenres(state) {
+    const showsByGenres = {};
+    const actionShows = [];
+    const thrillerShows = [];
+    const horrorShows = [];
+    const dramaShows = [];
+    state.allShows.forEach((show) => {
+      show.genres.forEach((genres) => {
+        if (genres === 'Action') {
+          actionShows.push(show);
+          showsByGenres[genres] = actionShows;
+        } else if (genres === 'Thriller') {
+          thrillerShows.push(show);
+          showsByGenres[genres] = thrillerShows;
+        } else if (genres === 'Horror') {
+          horrorShows.push(show);
+          showsByGenres[genres] = horrorShows;
+        } else if (genres === 'Drama') {
+          dramaShows.push(show);
+          showsByGenres[genres] = dramaShows;
+        }
+      });
+    });
+    return showsByGenres;
+  },
 };
