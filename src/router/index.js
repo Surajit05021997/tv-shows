@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
+import ShowDetails from '@/views/ShowDetails.vue';
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
     name: 'About',
     component: About,
   },
+  {
+    path: '/show/:id',
+    name: 'ShowDetails',
+    component: ShowDetails,
+  }
 ]
 
 const router = new VueRouter({

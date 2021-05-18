@@ -6,4 +6,8 @@ function getAllShows() {
   return axios.get(`${baseURL}/shows`);
 }
 
-export { getAllShows };
+function getShowDetails(id) {
+  return axios.get(`${baseURL}/shows/${id}`);
+}
+
+export { getAllShows, getShowDetails };

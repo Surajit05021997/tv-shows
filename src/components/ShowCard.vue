@@ -1,6 +1,6 @@
 <template>
   <div class="show-card">
-    <router-link to="/">
+    <router-link :to="{ name: 'ShowDetails', params: { id: show.id}}">
       <img class="show-image" :src="cardImage" alt="Show Image"><br>
       <b>{{show.name}}</b><br>
       Rating: {{rating || 'N/A'}}<br>
