@@ -8,4 +8,7 @@ export default {
   setSearchResult(state, payload) {
     state.searchResult = payload;
   },
+  setCast(state, payload) {
+    state.cast = payload;
+  }
 };

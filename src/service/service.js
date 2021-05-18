@@ -14,4 +14,8 @@ function getSearchResult(searchInput) {
   return axios.get(`${baseURL}/search/shows?q=${searchInput}`);
 }
 
-export { getAllShows, getShowDetails, getSearchResult };
+function getCast(id) {
+  return axios.get(`${baseURL}/shows/${id}/cast`);
+}
+
+export { getAllShows, getShowDetails, getSearchResult, getCast };
