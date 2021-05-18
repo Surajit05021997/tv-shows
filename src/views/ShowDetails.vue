@@ -1,15 +1,19 @@
 <template>
   <div class="show-details">
     <div class="main-container" v-if="!isLoading && !error">
+      <button id="back-btn" @click="$router.go(-1)">Back</button>
       <div class="poster-container">
         <img class="show-image" :src="showDetails.image.original" alt="Show Image">
       </div>
       <div class="details-container">
-        <h4><b>{{showDetails.name}}</b></h4>
+        <h3><b>{{showDetails.name}}</b></h3>
         <div class="show-info">
           <p class="show-summary" v-html="showDetails.summary"></p>
-          <h5>Genres</h5><p>{{showDetails.genres.toString() || 'N/A'}}</p>
-          <h5>Rating</h5><p>{{rating || 'N/A'}}</p>
+          <h6><b>GENRES</b></h6><p>{{showDetails.genres.toString() || 'N/A'}}</p>
+          <h6><b>RATING</b></h6><p>{{rating || 'N/A'}}</p>
+          <h6><b>LANGUAGE</b></h6><p>{{showDetails.language || 'N/A'}}</p>
+          <h6><b>TYPE</b></h6><p>{{showDetails.type || 'N/A'}}</p>
+          <h6><b>OFFICIAL SITE</b></h6><a :href="showDetails.officialSite" target="_blank">{{showDetails.officialSite || 'N/A'}}</a>
         </div>
       </div>
     </div>
@@ -72,15 +76,25 @@ export default {
 .main-container {
   display: flex;
 }
+#back-btn {
+  position: fixed;
+  background-color: rgba(221, 25, 25, 0.5);
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 0px 4px 4px 0px;
+  margin: 5px 5px 5px 0px;
+  transition: background-color 400ms, color 400ms;
+}
+#back-btn:hover {
+  background-color: rgba(221, 25, 25, 1);
+  color: rgba(255, 255, 255, 1);
+}
 .details-container {
   padding-right: 10px;
 }
 .show-image {
   height: 80vh;
   padding: 10px;
-}
-.show-summary {
-  text-align: justify;
 }
 .show-spinner {
   margin: 40vh 0px;

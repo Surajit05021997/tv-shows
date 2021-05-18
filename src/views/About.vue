@@ -2,7 +2,7 @@
   <div class="about">
     <p>
       TV Maze is your one stop solution for all your queries regarding your favorite tv shows.<br>
-      Access TV Maze API: <a href="https://www.tvmaze.com/api">tvmaze.com/api</a>
+      Access TV Maze API: <a href="https://www.tvmaze.com/api" target="_blank">tvmaze.com/api</a>
     </p>
   </div>
 </template>
