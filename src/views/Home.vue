@@ -12,3 +12,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.home {
+  min-height: 100%;
+  padding-top: 52.67px;
+  padding-bottom: 24px;
+}
+</style>
