@@ -9,7 +9,15 @@ export default {
   name: 'Home',
   components: {
 
-  }
+  },
+  created() {
+    this.getAllShows();
+  },
+  methods: {
+    getAllShows() {
+      this.$store.dispatch('getAllShows');
+    }
+  },
 }
 </script>
 
