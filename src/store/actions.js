@@ -1,4 +1,4 @@
-import { getAllShows, getShowDetails } from '@/service/service';
+import { getAllShows, getShowDetails, getSearchResult } from '@/service/service';
 
 export default {
   async getAllShows(context) {
@@ -17,6 +17,16 @@ export default {
       const showDetails = response.data;
       context.commit('setShowDetails', showDetails);
     } catch(error) {
+      const err = new Error(error.message);
+      throw err;
+    }
+  },
+  async getSearchResult(context, searchInput) {
+    try {
+      const response = await getSearchResult(searchInput);
+      const searchResult = response.data;
+      context.commit('setSearchResult', searchResult);
+    } catch (error) {
       const err = new Error(error.message);
       throw err;
     }

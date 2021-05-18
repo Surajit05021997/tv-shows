@@ -10,4 +10,8 @@ function getShowDetails(id) {
   return axios.get(`${baseURL}/shows/${id}`);
 }
 
-export { getAllShows, getShowDetails };
+function getSearchResult(searchInput) {
+  return axios.get(`${baseURL}/search/shows?q=${searchInput}`);
+}
+
+export { getAllShows, getShowDetails, getSearchResult };

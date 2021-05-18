@@ -5,4 +5,7 @@ export default {
   setShowDetails(state, payload) {
     state.showDetails = payload;
   },
+  setSearchResult(state, payload) {
+    state.searchResult = payload;
+  },
 };

@@ -10,6 +10,7 @@ export default new Vuex.Store({
   state: {
     allShows: [],
     showDetails: {},
+    searchResult: [],
   },
   getters,
   mutations,
