@@ -1,6 +1,5 @@
 import { getAllShows } from '@/service/service';
 
-
 export default {
   async getAllShows(context) {
     try {
