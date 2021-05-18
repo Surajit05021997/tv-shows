@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue';
 import Search from '@/views/Search.vue';
 import About from '@/views/About.vue';
 import ShowDetails from '@/views/ShowDetails.vue';
+import PageNotFound from '@/views/PageNotFound.vue';
 
 Vue.use(VueRouter)
 
@@ -27,7 +28,12 @@ const routes = [
     path: '/show/:id',
     name: 'ShowDetails',
     component: ShowDetails,
-  }
+  },
+  {
+    path: '*',
+    name: 'PageNotFound',
+    component: PageNotFound,
+  },
 ]
 
 const router = new VueRouter({

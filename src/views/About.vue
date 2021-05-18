@@ -1,6 +1,9 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <p>
+      TV Maze is your one stop solution for all your queries regarding your favorite tv shows.<br>
+      Access TV Maze API: <a href="https://www.tvmaze.com/api">tvmaze.com/api</a>
+    </p>
   </div>
 </template>
 
