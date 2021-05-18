@@ -12,6 +12,7 @@
     </div>
 
     <div v-else-if="!isLoading && error">
+      <error-page :error="error"></error-page>
     </div>
 
     <div class="show-spinner" v-else>
@@ -23,11 +24,13 @@
 <script>
 import { mapGetters } from 'vuex';
 import ShowCard from '@/components/ShowCard.vue';
+import ErrorPage from '@/components/ErrorPage.vue';
 
 export default {
   name: 'Home',
   components: {
     ShowCard,
+    ErrorPage,
   },
   data() {
     return {
