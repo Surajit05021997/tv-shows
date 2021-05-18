@@ -1,10 +1,12 @@
 <template>
   <div class="home">
-
+    
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Home',
   components: {
@@ -12,6 +14,9 @@ export default {
   },
   created() {
     this.getAllShows();
+  },
+  computed: {
+    ...mapGetters(['getTop20Shows']),
   },
   methods: {
     getAllShows() {
