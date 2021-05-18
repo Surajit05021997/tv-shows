@@ -85,4 +85,19 @@ export default {
 .show-spinner {
   margin: 40vh 0px;
 }
+@media only screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .details-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .show-image {
+    width: 70vw;
+    height: auto;
+  }
+}
 </style>
