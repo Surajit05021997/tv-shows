@@ -1,9 +1,9 @@
-import { getAllShows, getShowDetails, getSearchResult, getCast } from '@/service/service';
+import { getAllShowsService, getShowDetailsService, getSearchResultService, getCastService } from '@/service/service';
 
 export default {
   async getAllShows(context) {
     try {
-      const response = await getAllShows();
+      const response = await getAllShowsService();
       const allShows = response.data;
       context.commit('setAllShows', allShows);
     } catch (error) {
@@ -13,7 +13,7 @@ export default {
   },
   async getShowDetails(context, id) {
     try {
-      const response = await getShowDetails(id);
+      const response = await getShowDetailsService(id);
       const showDetails = response.data;
       context.commit('setShowDetails', showDetails);
     } catch(error) {
@@ -23,7 +23,7 @@ export default {
   },
   async getSearchResult(context, searchInput) {
     try {
-      const response = await getSearchResult(searchInput);
+      const response = await getSearchResultService(searchInput);
       const searchResult = response.data;
       context.commit('setSearchResult', searchResult);
     } catch (error) {
@@ -33,7 +33,7 @@ export default {
   },
   async getCast(context, id) {
     try {
-      const response = await getCast(id);
+      const response = await getCastService(id);
       const cast = response.data;
       context.commit('setCast', cast);
     } catch (error) {

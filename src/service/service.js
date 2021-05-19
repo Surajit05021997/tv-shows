@@ -2,20 +2,20 @@ import axios from 'axios';
 
 const baseURL = 'http://api.tvmaze.com';
 
-function getAllShows() {
+function getAllShowsService() {
   return axios.get(`${baseURL}/shows`);
 }
 
-function getShowDetails(id) {
+function getShowDetailsService(id) {
   return axios.get(`${baseURL}/shows/${id}`);
 }
 
-function getSearchResult(searchInput) {
+function getSearchResultService(searchInput) {
   return axios.get(`${baseURL}/search/shows?q=${searchInput}`);
 }
 
-function getCast(id) {
+function getCastService(id) {
   return axios.get(`${baseURL}/shows/${id}/cast`);
 }
 
-export { getAllShows, getShowDetails, getSearchResult, getCast };
+export { getAllShowsService, getShowDetailsService, getSearchResultService, getCastService };
