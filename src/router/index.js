@@ -8,7 +8,7 @@ import PageNotFound from '@/views/PageNotFound.vue';
 
 Vue.use(VueRouter)
 
-const routes = [
+export const routes = [
   {
     path: '/',
     name: 'Home',

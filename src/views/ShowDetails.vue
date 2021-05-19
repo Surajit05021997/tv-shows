@@ -4,7 +4,7 @@
       <div class="main-container">
         <button id="back-btn" @click="$router.go(-1)">Back</button>
         <div class="poster-container">
-          <img class="show-image" :src="showDetails.image.original" alt="Show Image">
+          <img class="show-image" :src="poster" alt="Show Image">
         </div>
         <div class="details-container">
           <h3><b>{{showDetails.name}}</b></h3>
@@ -22,7 +22,7 @@
         <h4><b>CAST</b></h4>
         <div class="cast-poster-container">
           <div class="cast" v-for="(individual, index) in cast" :key="index">
-            <img class="cast-image" :src="individual.person.image.medium" alt="Person Image">
+            <img class="cast-image" :src="castImage(individual)" alt="Person Image">
             <p>{{individual.person.name}}</p>
           </div>
         </div>
@@ -64,6 +64,12 @@ export default {
       const [rating] = Object.values(this.showDetails.rating);
       return rating;
     },
+    poster() {
+      if(this.showDetails.image) {
+        return this.showDetails.image.original;
+      }
+      return null;
+    },
   },
   methods: {
     async getShowDetails(id) {
@@ -83,6 +89,12 @@ export default {
         this.error = error.message;
       }
       this.isLoading = false;
+    },
+    castImage(individual) {
+      if(individual.person.image) {
+        return individual.person.image.medium;
+      }
+      return null;
     },
   },
 };
