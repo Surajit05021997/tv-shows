@@ -3,7 +3,7 @@
     <div class="search-bar-container">
       <form @submit.prevent>
         <input type="text" v-model.trim="searchInput" placeholder="Search...">
-        <button id="searchBtn" @click="getSearchResult(searchInput)">Search</button>
+        <button id="search-btn" @click="getSearchResult(searchInput)">Search</button>
       </form>
     </div>
 
@@ -77,7 +77,7 @@ export default {
 .search-bar-container {
   margin: 20px;
 }
-#searchBtn {
+#search-btn {
   background-color: rgb(221, 25, 25);
   border: none;
   color: white;

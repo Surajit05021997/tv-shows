@@ -1,7 +1,7 @@
 <template>
   <div class="error-page">
     <h3>{{error}}</h3>
-    <button id="reloadBtn" @click="reloadPage">Reload</button>
+    <button id="reload-btn" @click="reloadPage">Reload</button>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 .error-page {
   color: rgb(221, 25, 25);
 }
-#reloadBtn {
+#reload-btn {
   background-color: rgb(221, 25, 25);
   border: none;
   color: white;

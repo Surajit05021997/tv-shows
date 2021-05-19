@@ -2,8 +2,8 @@
   <div class="page-not-found">
     <div class="error-msg">
       <h2>Page Not Found</h2>
-      <p>Sorry, an error has occured, Requested page not found!</p>
-      <button id="homeBtn" @click="goToHome">Go To Home</button>
+      <p>Sorry, Requested page not found!</p>
+      <button id="home-btn" @click="goToHome">Go To Home</button>
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
 .error-msg {
   color: rgb(221, 25, 25);
 }
-#homeBtn {
+#home-btn {
   background-color: rgb(221, 25, 25);
   border: none;
   color: white;

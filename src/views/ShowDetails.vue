@@ -28,7 +28,6 @@
         </div>
       </div>
     </div>
-    
 
     <div v-else-if="!isLoading && error">
       <error-page :error="error"></error-page>
