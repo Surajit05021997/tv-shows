@@ -2,7 +2,7 @@
 
 ### Project Description
 ```
-tv-shows is a simple frond-end application developed using Vue js. It's homepage display top twenty tv shows based on rating and also display tv shows based on genre. On clicking a particular show, it displays the details about that show. It also has the functionality to search shows.
+tv-shows is a simple front-end application developed using Vue js. It's homepage display top twenty tv shows based on rating and also display tv shows based on genre. On clicking a particular show, it displays the details about that show. It also has the functionality to search shows.
 ```
 
 ### Technologies
@@ -26,9 +26,9 @@ Below I show you the packages I developed the application with:
 
 - Vue cli (v4.5.11)
 - HTTP client: Axios
-- State Management: Vuex
+- State management: Vuex
 - Routes management: VueRouter
-- Code formatters: ES-Linter
+- Code formatter: ES-Linter
 - Unit testing: Jest
 ```
 
