@@ -13,7 +13,12 @@ export default {
       window.location.reload();
     },
   },
-  props: ['error'],
+  props: {
+    error: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
 

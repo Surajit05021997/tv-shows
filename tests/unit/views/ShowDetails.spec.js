@@ -67,12 +67,12 @@ describe('In ShowDetails view', () => {
   });
 
   it('should call getShowDetails action when getShowDetails method is called', () => {
-    wrapper.vm.getShowDetails(1);
+    wrapper.vm.getTvShowDetails(1);
     expect(storeObj.actions.getShowDetails).toHaveBeenCalled();
   });
 
   it('should call getCast action when getCast method is called', () => {
-    wrapper.vm.getCast(1);
+    wrapper.vm.getShowCast(1);
     expect(storeObj.actions.getCast).toHaveBeenCalled();
   });
 });

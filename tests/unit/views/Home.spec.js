@@ -66,8 +66,8 @@ describe('In Home view', () => {
     expect(wrapper.html()).toContain('<div class="home">');
   });
 
-  it('should call getAllShows action when getAllShows method is called', () => {
-    wrapper.vm.getAllShows();
+  it('should call getAllShows action when getAllTvShows method is called', () => {
+    wrapper.vm.getAllTvShows();
     expect(storeObj.actions.getAllShows).toHaveBeenCalled();
   });
 });

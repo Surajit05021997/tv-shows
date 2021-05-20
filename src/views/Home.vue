@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import ShowCard from '@/components/ShowCard.vue';
 import ErrorPage from '@/components/ErrorPage.vue';
 
@@ -51,16 +51,17 @@ export default {
     };
   },
   created() {
-    this.getAllShows();
+    this.getAllTvShows();
   },
   computed: {
     ...mapGetters(['getTop20Shows', 'getShowsByGenres']),
   },
   methods: {
-    async getAllShows() {
+    ...mapActions(['getAllShows']),
+    async getAllTvShows() {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('getAllShows');
+        await this.getAllShows();
       } catch (error) {
         this.error = error.message;
       }
@@ -94,5 +95,15 @@ export default {
 }
 .show-spinner {
   margin: 40vh 0px;
+}
+@media only screen and (max-width: 480px) {
+  .shows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  }
+  .show {
+    width: 120px;
+  }
 }
 </style>

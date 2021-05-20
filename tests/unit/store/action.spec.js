@@ -1,7 +1,7 @@
 import actions from '@/store/actions';
-import { getAllShowsService, getShowDetailsService, getSearchResultService, getCastService } from '@/service/service';
+import { getAllShowsService, getShowDetailsService, getSearchResultService, getCastService } from '@/service/tvApi.service';
 
-jest.mock('@/service/service', () => ({
+jest.mock('@/service/tvApi.service', () => ({
   getAllShowsService: jest.fn(),
   getShowDetailsService: jest.fn(),
   getSearchResultService: jest.fn(),

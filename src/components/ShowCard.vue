@@ -11,7 +11,12 @@
 <script>
 export default {
   name: 'ShowCard',
-  props: ['show'],
+  props: {
+    show: {
+      type: Object,
+      required: true,
+    },
+  },
   computed: {
     rating() {
       const [rating] = Object.values(this.show.rating);

@@ -10,7 +10,7 @@
           <h3><b>{{showDetails.name}}</b></h3>
           <div class="show-info">
             <p class="show-summary" v-html="showDetails.summary"></p>
-            <h6><b>GENRES</b></h6><p>{{showDetails.genres.toString() || 'N/A'}}</p>
+            <h6><b>GENRES</b></h6><p>{{genres || 'N/A'}}</p>
             <h6><b>RATING</b></h6><p>{{rating || 'N/A'}}</p>
             <h6><b>LANGUAGE</b></h6><p>{{showDetails.language || 'N/A'}}</p>
             <h6><b>TYPE</b></h6><p>{{showDetails.type || 'N/A'}}</p>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import ErrorPage from '@/components/ErrorPage.vue';
 
 export default {
@@ -55,8 +55,8 @@ export default {
     };
   },
   created() {
-    this.getShowDetails(this.$route.params.id);
-    this.getCast(this.$route.params.id);
+    this.getTvShowDetails(this.$route.params.id);
+    this.getShowCast(this.$route.params.id);
   },
   computed: {
     ...mapState(['showDetails', 'cast']),
@@ -70,21 +70,28 @@ export default {
       }
       return null;
     },
+    genres() {
+      if (this.showDetails.genres) {
+        return this.showDetails.genres.toString();
+      }
+      return null;
+    },
   },
   methods: {
-    async getShowDetails(id) {
+    ...mapActions(['getShowDetails', 'getCast']),
+    async getTvShowDetails(id) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('getShowDetails', id);
+        await this.getShowDetails(id);
       } catch (error) {
         this.error = error.message;
       }
       this.isLoading = false;
     },
-    async getCast(id) {
+    async getShowCast(id) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('getCast', id);
+        await this.getCast(id);
       } catch (error) {
         this.error = error.message;
       }
@@ -125,6 +132,9 @@ export default {
 .details-container {
   padding-right: 10px;
 }
+.show-info {
+  text-align: left;
+}
 .show-image {
   height: 80vh;
   padding: 10px;
@@ -152,14 +162,20 @@ export default {
     flex-direction: column;
   }
   .details-container {
-  padding-right: 15px;
-  padding-left: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .show-info {
+    text-align: center;
   }
 }
 @media only screen and (max-width: 480px) {
   .show-image {
     width: 70vw;
     height: auto;
+  }
+  .show-info {
+    text-align: center;
   }
 }
 </style>

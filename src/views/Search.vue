@@ -3,7 +3,7 @@
     <div class="search-bar-container">
       <form @submit.prevent>
         <input type="text" v-model.trim="searchInput" placeholder="Search...">
-        <button id="search-btn" @click="getSearchResult(searchInput)">Search</button>
+        <button id="search-btn" @click="getTvShowSearchResult(searchInput)">Search</button>
       </form>
     </div>
 
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import ShowCard from '@/components/ShowCard.vue';
 import ErrorPage from '@/components/ErrorPage.vue';
 
@@ -51,11 +51,12 @@ export default {
     ...mapState(['searchResult']),
   },
   methods: {
-    async getSearchResult(searchInput) {
+    ...mapActions(['getSearchResult']),
+    async getTvShowSearchResult(searchInput) {
       if (this.searchInput !== '') {
         this.isLoading = true;
         try {
-          await this.$store.dispatch('getSearchResult', searchInput);
+          await this.getSearchResult(searchInput);
         } catch (error) {
           this.error = error.message;
         }

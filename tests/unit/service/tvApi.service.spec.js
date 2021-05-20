@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getAllShowsService, getShowDetailsService, getSearchResultService, getCastService } from '@/service/service';
+import { getAllShowsService, getShowDetailsService, getSearchResultService, getCastService } from '@/service/tvApi.service';
 
 jest.mock('axios', () => ({
   get: jest.fn(),
