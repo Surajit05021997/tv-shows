@@ -10,5 +10,8 @@ export default {
   },
   setCast(state, payload) {
     state.cast = payload;
+  },
+  setSelectedGenre(state, payload) {
+    state.selectedGenre = payload;
   }
 };

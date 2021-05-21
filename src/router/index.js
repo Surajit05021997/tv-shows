@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue';
 import Search from '@/views/Search.vue';
-import About from '@/views/About.vue';
 import ShowDetails from '@/views/ShowDetails.vue';
 import PageNotFound from '@/views/PageNotFound.vue';
 
@@ -15,14 +14,9 @@ export const routes = [
     component: Home,
   },
   {
-    path: '/search',
+    path: '/search/:searchInput',
     name: 'Search',
     component: Search,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About,
   },
   {
     path: '/show/:id',

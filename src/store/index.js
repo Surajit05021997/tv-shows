@@ -12,6 +12,7 @@ export default new Vuex.Store({
     showDetails: {},
     searchResult: [],
     cast: [],
+    selectedGenre: '',
   },
   getters,
   mutations,

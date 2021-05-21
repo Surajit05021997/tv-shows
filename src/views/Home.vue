@@ -12,12 +12,15 @@
 
       <div class="show-container">
         <h4><b>Shows By Genre</b></h4>
-        <div class="genre-container" v-for="(shows, genre) in getShowsByGenres" :key="genre">
-          <h4>{{genre}} Shows</h4>
-          <div class="shows">
-            <div class="show" v-for="show in shows" :key="show.id">
-              <show-card :show="show"></show-card>
-            </div>
+        <h4>{{selectedGenre}} Shows</h4>
+        <select v-model="selectedGenre">
+          <option v-for="(option, index) in getAllGenres" :key="index" v-bind:value="option">
+            {{ option }}
+          </option>
+        </select>
+        <div class="shows">
+          <div class="show" v-for="show in getShowListByGenre" :key="show.id">
+            <show-card :show="show"></show-card>
           </div>
         </div>
       </div> 
@@ -28,13 +31,14 @@
     </div>
 
     <div class="show-spinner" v-else>
-      <b-spinner variant="danger" label="Spinning"></b-spinner>
+      <!-- <b-spinner variant="danger" label="Spinning"></b-spinner> -->
+      <h2>LOADING...</h2>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 import ShowCard from '@/components/ShowCard.vue';
 import ErrorPage from '@/components/ErrorPage.vue';
 
@@ -45,19 +49,31 @@ export default {
     ErrorPage,
   },
   data() {
-    return {
+    return { 
+      selectedGenre: 'Drama',
       isLoading: false,
       error: null,
     };
   },
   created() {
     this.getAllTvShows();
+    this.getSelectedGenre(this.selectedGenre);
   },
   computed: {
-    ...mapGetters(['getTop20Shows', 'getShowsByGenres']),
+    ...mapState(['allShows']),
+    ...mapGetters(['getTop20Shows', 'getShowListByGenre']),
+    getAllGenres() {
+      const genreList = new Set();
+      this.allShows.forEach((show) => {
+        show.genres.forEach((genre) => {
+          genreList.add(genre);
+        });
+      });
+      return genreList;
+    },
   },
   methods: {
-    ...mapActions(['getAllShows']),
+    ...mapActions(['getAllShows', 'getSelectedGenre']),
     async getAllTvShows() {
       this.isLoading = true;
       try {
@@ -68,6 +84,11 @@ export default {
       this.isLoading = false;
     },
   },
+  watch: {
+    selectedGenre: function() {
+      this.getSelectedGenre(this.selectedGenre);
+    }
+  }
 }
 </script>
 
@@ -98,7 +119,6 @@ export default {
 }
 @media only screen and (max-width: 480px) {
   .shows {
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   }

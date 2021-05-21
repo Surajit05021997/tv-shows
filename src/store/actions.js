@@ -41,4 +41,7 @@ export default {
       throw err;
     }
   },
+  getSelectedGenre({ commit }, genre) {
+    commit('setSelectedGenre', genre);
+  }
 };

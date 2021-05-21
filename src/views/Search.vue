@@ -1,13 +1,7 @@
 <template>
   <div class="search">
-    <div class="search-bar-container">
-      <form @submit.prevent>
-        <input type="text" v-model.trim="searchInput" placeholder="Search...">
-        <button id="search-btn" @click="getTvShowSearchResult(searchInput)">Search</button>
-      </form>
-    </div>
-
     <div v-if="!isLoading && !error && shows !== null">
+      <h2>Search result for: {{searchInput}}</h2>
       <div class="search-result-container" v-if="shows.length !== 0">
         <div class="show" v-for="item in shows" :key="item.show.id">
           <show-card :show="item.show"></show-card>
@@ -23,7 +17,8 @@
     </div>
 
     <div class="show-spinner" v-else-if="isLoading">
-      <b-spinner variant="danger" label="Spinning"></b-spinner>
+      <!-- <b-spinner variant="danger" label="Spinning"></b-spinner> -->
+      <h2>LOADING...</h2>
     </div>
   </div>
 </template>
@@ -41,14 +36,19 @@ export default {
   },
   data() {
     return {
-      searchInput: '',
       isLoading: false,
       error: null,
       shows: null,
     };
   },
+  created() {
+    this.getTvShowSearchResult(this.searchInput);
+  },
   computed: {
     ...mapState(['searchResult']),
+    searchInput() {
+      return this.$route.params.searchInput;
+    },
   },
   methods: {
     ...mapActions(['getSearchResult']),
@@ -62,9 +62,13 @@ export default {
         }
         this.shows = this.searchResult;
         this.isLoading = false;
-        this.searchInput = '';
       }
     },
+  },
+  watch: {
+    searchInput: function() {
+      this.getTvShowSearchResult(this.searchInput);
+    }
   },
 };
 </script>
