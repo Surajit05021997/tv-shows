@@ -10,11 +10,6 @@
             <button class="btn" @click="searchShow(searchInput)">search</button>
           </form>
         </div>
-      <!-- <div class="right">
-        <div class="toggle">
-          <button class="btn" @click="taggleNav">+</button>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -25,7 +20,6 @@ export default {
   data() {
     return {
       searchInput: '',
-      isActive: false,
     };
   },
   methods: {
