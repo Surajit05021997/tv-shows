@@ -45,4 +45,13 @@ describe('In mutations', () => {
     mutations.setCast(state, payload);
     expect(state.cast).toEqual(payload);
   });
+
+  it('it should mutat selectedGenre', () => {
+    const state = {
+      selectedGenre: '',
+    };
+    const payload = 'Action';
+    mutations.setSelectedGenre(state, payload);
+    expect(state.selectedGenre).toBe('Action');
+  })
 });

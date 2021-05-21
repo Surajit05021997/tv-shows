@@ -9,7 +9,6 @@ describe('In ShowDetails view', () => {
     state: {
       showDetails: {
         "id":1,
-        "url":"https://www.tvmaze.com/shows/1/under-the-dome",
         "name":"Under the Dome",
         "type":"Scripted",
         "language":"English",
@@ -71,8 +70,19 @@ describe('In ShowDetails view', () => {
     expect(storeObj.actions.getShowDetails).toHaveBeenCalled();
   });
 
+  it('should render the correct data', () => {
+    expect(wrapper.html()).toContain('<p>Drama,Science-Fiction,Thriller</p>');
+    expect(wrapper.html()).toContain('<p>6.6</p>');
+    expect(wrapper.html()).toContain('<p>English</p>');
+    expect(wrapper.html()).toContain('<p>Scripted</p>');
+  });
+
   it('should call getCast action when getCast method is called', () => {
     wrapper.vm.getShowCast(1);
     expect(storeObj.actions.getCast).toHaveBeenCalled();
+  });
+
+  it('should render the cast correctly', () => {
+    expect(wrapper.findAll('.cast').length).toBe(2);
   });
 });

@@ -1,6 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Search from '@/views/Search.vue';
-import BootstrapVue from 'bootstrap-vue';
 import Vuex from 'vuex';
 
 describe('In Search view', () => {
@@ -19,7 +18,6 @@ describe('In Search view', () => {
 
   beforeEach(() => {
     const localVue = createLocalVue();
-    localVue.use(BootstrapVue);
     localVue.use(Vuex);
 
     const store = new Vuex.Store(storeObj);
@@ -27,11 +25,13 @@ describe('In Search view', () => {
     wrapper = shallowMount(Search, {
       localVue,
       store,
-      data() {
-        return {
-          searchInput: 'dark',
-        }
-      }
+      mocks: {
+        $route: {
+          params: {
+            searchInput: 'Dark',
+          },
+        },
+      },
     });
   });
 
@@ -47,8 +47,11 @@ describe('In Search view', () => {
     expect(wrapper.html()).toContain('<div class="search">');
   });
 
-  it('should call getSearchResult when search button is clicked', () => {
-    wrapper.find('#search-btn').trigger('click');
+  it('should call getSearchResult action when component is created', () => {
     expect(storeObj.actions.getSearchResult).toHaveBeenCalled();
+  });
+
+  it('should show correct now of show after search', () => {
+    expect(wrapper.findAll('.show').length).toBe(2);
   });
 });

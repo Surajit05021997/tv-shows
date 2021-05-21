@@ -5,20 +5,16 @@ import { routes } from '@/router/index';
 
 describe('In ShowCard Component', () => {
   let wrapper;
-  let sampleData = {
+  const commonData = {
     "id":1,
-    "url":"https://www.tvmaze.com/shows/1/under-the-dome",
     "name":"Under the Dome",
-    "type":"Scripted",
-    "language":"English",
-    "genres":["Drama","Science-Fiction","Thriller"],
-    "officialSite":"http://www.cbs.com/shows/under-the-dome/",
     "rating":{"average":6.6},
+  };
+  const sampleData = {
+    ...commonData,
     "image":{
       "medium":"https://static.tvmaze.com/uploads/images/medium_portrait/81/202627.jpg",
-      "original":"https://static.tvmaze.com/uploads/images/original_untouched/81/202627.jpg"
     },
-    "summary":"<p><b>Under the Dome</b> is the story of a small town that is suddenly and inexplicably sealed off from the rest of the world by an enormous transparent dome.</p>",
   };
 
   beforeEach(() => {
@@ -46,22 +42,22 @@ describe('In ShowCard Component', () => {
     expect(wrapper.html()).toContain('<div class="show-card">');
   });
 
-  it('should render the correct rating', () => {
+  it('should render the correct show rating', () => {
     expect(wrapper.html()).toContain('Rating: 6.6');
+  });
+
+  it('should render the correct show name', () => {
+    expect(wrapper.html()).toContain('Under the Dome');
+  });
+
+  it('should render the image properly', () => {
+    expect(wrapper.html()).toContain('<img src="https://static.tvmaze.com/uploads/images/medium_portrait/81/202627.jpg" alt="Show Image" class="show-image">');
   });
 
   it('should render properly if image is null', async () => {
     await wrapper.setProps({show: {
-      "id":1,
-      "url":"https://www.tvmaze.com/shows/1/under-the-dome",
-      "name":"Under the Dome",
-      "type":"Scripted",
-      "language":"English",
-      "genres":["Drama","Science-Fiction","Thriller"],
-      "officialSite":"http://www.cbs.com/shows/under-the-dome/",
-      "rating":{"average":6.6},
+      ...commonData,
       "image":null,
-      "summary":"<p><b>Under the Dome</b> is the story of a small town that is suddenly and inexplicably sealed off from the rest of the world by an enormous transparent dome.</p>",
     }});
     expect(wrapper.html()).toContain('<img alt="Show Image" class="show-image">');
   });

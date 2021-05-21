@@ -71,7 +71,7 @@ export default {
       return null;
     },
     genres() {
-      if (this.showDetails.genres !== undefined || this.showDetails.genres !== null) {
+      if (this.showDetails.genres) {
         return this.showDetails.genres.toString();
       }
       return null;
