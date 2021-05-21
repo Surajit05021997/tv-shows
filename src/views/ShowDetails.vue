@@ -72,7 +72,7 @@ export default {
       return null;
     },
     genres() {
-      if (this.showDetails.genres === undefined || this.showDetails.genres === null) {
+      if (this.showDetails.genres !== undefined || this.showDetails.genres !== null) {
         return this.showDetails.genres.toString();
       }
       return null;
@@ -87,10 +87,8 @@ export default {
       } catch (error) {
         this.error = error.message;
       }
-      this.isLoading = false;
     },
     async getShowCast(id) {
-      this.isLoading = true;
       try {
         await this.getCast(id);
       } catch (error) {
