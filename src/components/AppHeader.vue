@@ -1,22 +1,20 @@
 <template>
   <div class="app-header">
-    <div >
-      <div class="my-nav" :class="{'toggle-nav': isActive}">
-        <div class="left">
-          <div class="brand">
-            <router-link  to="/"><h2 id="logo-name"><b>TV MAZE</b></h2></router-link>
-          </div>
-          <div class="search-box">
-            <form @submit.prevent>
-              <input id="search-field" type="text" v-model.trim="searchInput">
-              <button class="btn" @click="searchShow(searchInput)">search</button>
-            </form>
-          </div>
+    <div class="my-nav" :class="{'toggle-nav': isActive}">
+      <div class="left">
+        <div class="brand">
+          <router-link  to="/"><h2 id="logo-name"><b>TV MAZE</b></h2></router-link>
         </div>
-        <div class="right">
-          <div class="toggle">
-            <button class="btn" @click="taggleNav">+</button>
-          </div>
+        <div class="search-box">
+          <form @submit.prevent>
+            <input id="search-field" type="text" v-model.trim="searchInput">
+            <button class="btn" @click="searchShow(searchInput)">search</button>
+          </form>
+        </div>
+      </div>
+      <div class="right">
+        <div class="toggle">
+          <button class="btn" @click="taggleNav">+</button>
         </div>
       </div>
     </div>

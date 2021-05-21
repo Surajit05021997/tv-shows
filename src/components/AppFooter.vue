@@ -2,7 +2,7 @@
   <div class="app-footer">
     <footer>
       <div >&copy; 2021 Copyright:
-        <a href="https://www.tvmaze.com/api">tvmaze.com</a>
+        <a href="https://www.tvmaze.com/api" target="_blank">tvmaze.com</a>
       </div>
     </footer>
   </div>
