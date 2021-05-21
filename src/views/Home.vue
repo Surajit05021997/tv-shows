@@ -31,7 +31,6 @@
     </div>
 
     <div class="show-spinner" v-else>
-      <!-- <b-spinner variant="danger" label="Spinning"></b-spinner> -->
       <h2>LOADING...</h2>
     </div>
   </div>

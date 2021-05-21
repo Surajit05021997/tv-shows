@@ -17,7 +17,6 @@
     </div>
 
     <div class="show-spinner" v-else-if="isLoading">
-      <!-- <b-spinner variant="danger" label="Spinning"></b-spinner> -->
       <h2>LOADING...</h2>
     </div>
   </div>
