@@ -71,7 +71,7 @@ describe('In ShowDetails view', () => {
   });
 
   it('should render the correct data', () => {
-    expect(wrapper.html()).toContain('<p>Drama,Science-Fiction,Thriller</p>');
+    expect(wrapper.html()).toContain('<p>Drama, Science-Fiction, Thriller</p>');
     expect(wrapper.html()).toContain('<p>6.6</p>');
     expect(wrapper.html()).toContain('<p>English</p>');
     expect(wrapper.html()).toContain('<p>Scripted</p>');

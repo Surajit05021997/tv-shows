@@ -29,9 +29,6 @@ export default {
     };
   },
   methods: {
-    taggleNav() {
-      this.isActive = !this.isActive;
-    },
     searchShow(searchInput) {
       if(this.$route.path !== `/search/${searchInput}` && searchInput !== '')
       {

@@ -38,10 +38,4 @@ describe('In AppHeader component', () => {
     await wrapper.find('.btn').trigger('click');
     expect(wrapper.vm.$route.path).toBe('/search/Dark');
   });
-
-  it('should add class toggle-nav when + button is clicked', async () => {
-    await wrapper.find('.toggle .btn').trigger('click');
-    expect(wrapper.vm.$data.isActive).toBe(true);
-    expect(wrapper.html()).toContain('<div class="my-nav toggle-nav">');
-  });
 });
