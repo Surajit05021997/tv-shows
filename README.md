@@ -14,7 +14,6 @@ Here you can see the tech stack used to develop this project
 ```
 - HTML5
 - CSS3
-- BootstrapVue
 - ECMAScript 6 (ES6)
 ```
 
