@@ -29,9 +29,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
@@ -238,7 +238,8 @@
 <a name='L180'></a><a href='#L180'>180</a>
 <a name='L181'></a><a href='#L181'>181</a>
 <a name='L182'></a><a href='#L182'>182</a>
-<a name='L183'></a><a href='#L183'>183</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -313,10 +314,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -343,6 +344,7 @@
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -429,19 +431,19 @@
           &lt;img class="show-image" :src="poster" alt="Show Image"&gt;
         &lt;/div&gt;
         &lt;div class="details-container"&gt;
-          &lt;h3&gt;&lt;b&gt;{{showDetails.name}}&lt;/b&gt;&lt;/h3&gt;
+          &lt;h1&gt;&lt;b&gt;{{showDetails.name}}&lt;/b&gt;&lt;/h1&gt;
           &lt;div class="show-info"&gt;
             &lt;p class="show-summary" v-html="showDetails.summary"&gt;&lt;/p&gt;
-            &lt;h6&gt;&lt;b&gt;GENRES&lt;/b&gt;&lt;/h6&gt;&lt;p&gt;{{genres || 'N/A'}}&lt;/p&gt;
-            &lt;h6&gt;&lt;b&gt;RATING&lt;/b&gt;&lt;/h6&gt;&lt;p&gt;{{rating || 'N/A'}}&lt;/p&gt;
-            &lt;h6&gt;&lt;b&gt;LANGUAGE&lt;/b&gt;&lt;/h6&gt;&lt;p&gt;{{showDetails.language || 'N/A'}}&lt;/p&gt;
-            &lt;h6&gt;&lt;b&gt;TYPE&lt;/b&gt;&lt;/h6&gt;&lt;p&gt;{{showDetails.type || 'N/A'}}&lt;/p&gt;
-            &lt;h6&gt;&lt;b&gt;OFFICIAL SITE&lt;/b&gt;&lt;/h6&gt;&lt;a :href="showDetails.officialSite" target="_blank"&gt;{{showDetails.officialSite || 'N/A'}}&lt;/a&gt;
+            &lt;h3&gt;&lt;b&gt;GENRES&lt;/b&gt;&lt;/h3&gt;&lt;p&gt;{{genres || 'N/A'}}&lt;/p&gt;
+            &lt;h3&gt;&lt;b&gt;RATING&lt;/b&gt;&lt;/h3&gt;&lt;p&gt;{{rating || 'N/A'}}&lt;/p&gt;
+            &lt;h3&gt;&lt;b&gt;LANGUAGE&lt;/b&gt;&lt;/h3&gt;&lt;p&gt;{{showDetails.language || 'N/A'}}&lt;/p&gt;
+            &lt;h3&gt;&lt;b&gt;TYPE&lt;/b&gt;&lt;/h3&gt;&lt;p&gt;{{showDetails.type || 'N/A'}}&lt;/p&gt;
+            &lt;h3&gt;&lt;b&gt;OFFICIAL SITE&lt;/b&gt;&lt;/h3&gt;&lt;a :href="showDetails.officialSite" target="_blank"&gt;{{showDetails.officialSite || 'N/A'}}&lt;/a&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class="cast-container"&gt;
-        &lt;h4&gt;&lt;b&gt;CAST&lt;/b&gt;&lt;/h4&gt;
+        &lt;h3&gt;&lt;b&gt;CAST&lt;/b&gt;&lt;/h3&gt;
         &lt;div class="cast-poster-container"&gt;
           &lt;div class="cast" v-for="(individual, index) in cast" :key="index"&gt;
             &lt;img class="cast-image" :src="castImage(individual)" alt="Person Image"&gt;
@@ -494,10 +496,10 @@ export default {
 <span class="cstat-no" title="statement not covered" >      return null;</span>
     },
     genres() {
-<span class="missing-if-branch" title="else path not taken" >E</span>      if (this.showDetails.genres) {
-        return this.showDetails.genres.toString();
+<span class="missing-if-branch" title="if path not taken" >I</span>      if (this.showDetails.genres === undefined || this.showDetails.genres === null) {
+<span class="cstat-no" title="statement not covered" >        return this.showDetails.genres.toString();</span>
       }
-<span class="cstat-no" title="statement not covered" >      return null;</span>
+      return null;
     },
   },
   methods: {
@@ -546,6 +548,7 @@ export default {
   color: rgba(255, 255, 255, 0.5);
   border-radius: 0px 4px 4px 0px;
   margin: 5px 5px 5px 0px;
+  cursor: pointer;
   transition: background-color 400ms, color 400ms;
 }
 #back-btn:hover {
@@ -609,7 +612,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri May 21 2021 11:17:31 GMT+0530 (India Standard Time)
+                at Fri May 21 2021 12:40:13 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="..\..\prettify.js"></script>

@@ -4,7 +4,7 @@
       <div class="my-nav" :class="{'toggle-nav': isActive}">
         <div class="left">
           <div class="brand">
-            <router-link  to="/"><h4><b>TV MAZE</b></h4></router-link>
+            <router-link  to="/"><h2 id="logo-name"><b>TV MAZE</b></h2></router-link>
           </div>
           <div class="search-box">
             <form @submit.prevent>
@@ -66,17 +66,14 @@ export default {
 .brand {
   margin: 12px;
 }
-h4 {
+#logo-name {
   margin: 0px;
 }
 a {
   color: rgb(221, 25, 25);
-}
-a:hover {
   text-decoration: none;
 }
 .search-box {
-  align-self: flex-start;
   display: flex;
   margin: 10px 12px;
 }
@@ -105,6 +102,7 @@ a:hover {
   color: white;
   border-radius: 4px;
   margin: 0px 5px;
+  cursor: pointer;
 }
 @media only screen and (max-width: 480px) {
   .left {
@@ -112,6 +110,9 @@ a:hover {
     align-self: flex-start;
   }
   .brand {
+    align-self: flex-start;
+  }
+  .search-box {
     align-self: flex-start;
   }
   .toggle {

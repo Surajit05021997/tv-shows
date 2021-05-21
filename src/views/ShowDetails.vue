@@ -7,19 +7,19 @@
           <img class="show-image" :src="poster" alt="Show Image">
         </div>
         <div class="details-container">
-          <h3><b>{{showDetails.name}}</b></h3>
+          <h1><b>{{showDetails.name}}</b></h1>
           <div class="show-info">
             <p class="show-summary" v-html="showDetails.summary"></p>
-            <h6><b>GENRES</b></h6><p>{{genres || 'N/A'}}</p>
-            <h6><b>RATING</b></h6><p>{{rating || 'N/A'}}</p>
-            <h6><b>LANGUAGE</b></h6><p>{{showDetails.language || 'N/A'}}</p>
-            <h6><b>TYPE</b></h6><p>{{showDetails.type || 'N/A'}}</p>
-            <h6><b>OFFICIAL SITE</b></h6><a :href="showDetails.officialSite" target="_blank">{{showDetails.officialSite || 'N/A'}}</a>
+            <h3><b>GENRES</b></h3><p>{{genres || 'N/A'}}</p>
+            <h3><b>RATING</b></h3><p>{{rating || 'N/A'}}</p>
+            <h3><b>LANGUAGE</b></h3><p>{{showDetails.language || 'N/A'}}</p>
+            <h3><b>TYPE</b></h3><p>{{showDetails.type || 'N/A'}}</p>
+            <h3><b>OFFICIAL SITE</b></h3><a :href="showDetails.officialSite" target="_blank">{{showDetails.officialSite || 'N/A'}}</a>
           </div>
         </div>
       </div>
       <div class="cast-container">
-        <h4><b>CAST</b></h4>
+        <h3><b>CAST</b></h3>
         <div class="cast-poster-container">
           <div class="cast" v-for="(individual, index) in cast" :key="index">
             <img class="cast-image" :src="castImage(individual)" alt="Person Image">
@@ -72,7 +72,7 @@ export default {
       return null;
     },
     genres() {
-      if (this.showDetails.genres) {
+      if (this.showDetails.genres === undefined || this.showDetails.genres === null) {
         return this.showDetails.genres.toString();
       }
       return null;
@@ -124,6 +124,7 @@ export default {
   color: rgba(255, 255, 255, 0.5);
   border-radius: 0px 4px 4px 0px;
   margin: 5px 5px 5px 0px;
+  cursor: pointer;
   transition: background-color 400ms, color 400ms;
 }
 #back-btn:hover {

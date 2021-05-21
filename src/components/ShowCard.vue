@@ -38,11 +38,11 @@ export default {
 }
 a {
   color: black;
+  text-decoration: none;
   transition: color 250ms;
 }
 a:hover {
   color: rgb(221, 25, 25);
-  text-decoration: none;
 }
 @media only screen and (max-width: 768px) {
   .show-image {

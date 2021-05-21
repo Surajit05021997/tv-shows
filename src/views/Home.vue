@@ -2,7 +2,7 @@
   <div class="home">
     <div class="main-container" v-if="!isLoading && !error">
       <div class="show-container">
-        <h4><b>Top Shows</b></h4>
+        <h2><b>Top Shows</b></h2>
         <div class="shows">
           <div class="show" v-for="show in getTop20Shows" :key="show.id">
             <show-card :show="show"></show-card>
@@ -11,8 +11,8 @@
       </div>
 
       <div class="show-container">
-        <h4><b>Shows By Genre</b></h4>
-        <h4>{{selectedGenre}} Shows</h4>
+        <h2><b>Shows By Genre</b></h2>
+        <h3>{{selectedGenre}} Shows</h3>
         <select v-model="selectedGenre">
           <option v-for="(option, index) in getAllGenres" :key="index" v-bind:value="option">
             {{ option }}

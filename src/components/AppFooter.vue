@@ -17,14 +17,15 @@ export default {
 <style scoped>
 .app-footer {
   color: white;
+  height: 24px;
   background-color: rgb(52, 58, 64);
   margin-top: -24px;
 }
 a {
   color: white;
+  text-decoration: none;
 }
 a:hover {
   color: lightgrey;
-  text-decoration: none;
 }
 </style>
