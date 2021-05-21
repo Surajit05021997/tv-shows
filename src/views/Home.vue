@@ -94,6 +94,7 @@ export default {
 <style scoped>
 .home {
   min-height: 100%;
+  box-sizing: border-box;
   padding-top: 52.67px;
   padding-bottom: 24px;
 }
@@ -113,10 +114,18 @@ export default {
 .show {
   margin: 10px;
 }
+select {
+  background-color: black;
+    color: white;
+    width: 120px;
+}
 .show-spinner {
   margin: 40vh 0px;
 }
 @media only screen and (max-width: 480px) {
+  .home {
+    padding-top: 100px;
+  }
   .shows {
   flex-wrap: wrap;
   justify-content: center;

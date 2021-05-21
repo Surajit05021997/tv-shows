@@ -1,7 +1,6 @@
 <template>
   <div class="app-header">
-    <div class="my-nav" :class="{'toggle-nav': isActive}">
-      <div class="left">
+    <div class="my-nav">
         <div class="brand">
           <router-link  to="/"><h2 id="logo-name"><b>TV MAZE</b></h2></router-link>
         </div>
@@ -11,12 +10,11 @@
             <button class="btn" @click="searchShow(searchInput)">search</button>
           </form>
         </div>
-      </div>
-      <div class="right">
+      <!-- <div class="right">
         <div class="toggle">
           <button class="btn" @click="taggleNav">+</button>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -59,7 +57,6 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
 }
 .brand {
   margin: 12px;
@@ -72,27 +69,10 @@ a {
   text-decoration: none;
 }
 .search-box {
-  display: flex;
   margin: 10px 12px;
-}
-.left {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
 }
 #search-field {
   width: 30vw;
-}
-.right {
-  align-self: flex-start;
-  margin: 9px;
-}
-.toggle-nav {
-  height: 110px;
-}
-.toggle {
-  display: none; 
 }
 .btn {
   background-color: rgb(221, 25, 25);
@@ -103,23 +83,11 @@ a {
   cursor: pointer;
 }
 @media only screen and (max-width: 480px) {
-  .left {
-    flex-direction: column;
-    align-self: flex-start;
-  }
-  .brand {
-    align-self: flex-start;
-  }
-  .search-box {
-    align-self: flex-start;
-  }
-  .toggle {
-    display: inherit;
-  }
-}
-@media only screen and (min-width: 481px){
   .my-nav {
-    height: 52.67px;
+    height: 100px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 }
 </style>

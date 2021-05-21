@@ -18,7 +18,7 @@ export default {
 .app-footer {
   color: white;
   height: 24px;
-  background-color: rgb(52, 58, 64);
+  background-color: black;
   margin-top: -24px;
 }
 a {

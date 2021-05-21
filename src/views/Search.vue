@@ -75,6 +75,7 @@ export default {
 <style scoped>
 .search {
   min-height: 100%;
+  box-sizing: border-box;
   padding-top: 52.67px;
   padding-bottom: 24px;
 }
@@ -99,5 +100,10 @@ export default {
 }
 .show-spinner {
   margin: 40vh 0px;
+}
+@media only screen and (max-width: 480px) {
+  .search {
+    padding-top: 100px;
+  }
 }
 </style>

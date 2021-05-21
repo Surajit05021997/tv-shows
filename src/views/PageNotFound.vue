@@ -22,11 +22,12 @@ export default {
 <style scoped>
 .page-not-found {
   min-height: 100%;
+  box-sizing: border-box;
   padding-top: 52.67px;
   padding-bottom: 24px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 .error-msg {
   color: rgb(221, 25, 25);
@@ -36,5 +37,10 @@ export default {
   border: none;
   color: white;
   border-radius: 4px;
+}
+@media only screen and (max-width: 480px) {
+  .page-not-found {
+    padding-top: 100px;
+  }
 }
 </style>

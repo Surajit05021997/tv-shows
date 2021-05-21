@@ -72,7 +72,7 @@ export default {
     },
     genres() {
       if (this.showDetails.genres) {
-        return this.showDetails.genres.toString();
+        return this.showDetails.genres.join(', ');
       }
       return null;
     },
@@ -108,6 +108,7 @@ export default {
 <style scoped>
 .show-details {
   min-height: 100%;
+  box-sizing: border-box;
   padding-top: 52.67px;
   padding-bottom: 24px;
 }
@@ -169,6 +170,9 @@ export default {
   }
 }
 @media only screen and (max-width: 480px) {
+  .show-details {
+    padding-top: 100px;
+  }
   .show-image {
     width: 70vw;
     height: auto;
