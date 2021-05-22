@@ -15,20 +15,22 @@ Here you can see the tech stack used to develop this project
 - HTML5
 - CSS3
 - ECMAScript 6 (ES6)
+- VueJs (Javascript Framework)
 ```
 
 ### Vue
 ```
 I choose Vue js to develop this application because it is progressive and light framework. Even though vue is light, it packs lot of features to develop full fledged application.
 
-Below I show you the packages I developed the application with:
+Below are the packages I used to developed the application with:
 
-- Vue cli (v4.5.11)
-- HTTP client: Axios
-- State management: Vuex
-- Routes management: VueRouter
-- Code formatter: ES-Linter
-- Unit testing: Jest
+- Vue (2.6.11)
+- Vue cli (4.5.0)
+- HTTP client: Axios (0.21.1)
+- State management: Vuex (3.4.0)
+- Routes management: VueRouter (3.2.0)
+- Code formatter: ES-Linter (6.7.2)
+- Unit testing: Jest (4.5.0)
 ```
 
 ## Project setup
