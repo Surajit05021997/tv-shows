@@ -25,9 +25,6 @@ export default {
   box-sizing: border-box;
   padding-top: 52.67px;
   padding-bottom: 24px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 .error-msg {
   color: rgb(221, 25, 25);
@@ -37,6 +34,7 @@ export default {
   border: none;
   color: white;
   border-radius: 4px;
+  cursor: pointer;
 }
 @media only screen and (max-width: 480px) {
   .page-not-found {

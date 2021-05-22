@@ -5,18 +5,14 @@ module.exports = {
     '**/*.{js,vue}',
     '!**/node_modules/**',
     '!**/*.config.js',
-    '!**/vendor/**',
-    '!**/tests/e2e/**',
     '!**/main.js',
     '!**/coverage/**',
-    '!**/plugins/bootstrap-vue.js**',
   ],
   coverageThreshold: {
     global: {
       branches: 80,
       functions: 80,
       lines: 80,
-      statements: -10,
     },
   },
 }

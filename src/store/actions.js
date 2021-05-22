@@ -43,5 +43,11 @@ export default {
   },
   getSelectedGenre({ commit }, genre) {
     commit('setSelectedGenre', genre);
+  },
+  getSearchValue({ commit }, searchValue) {
+    commit('setSearchValue', searchValue);
+  },
+  changeIsReload({ commit }) {
+    commit('setIsReload');
   }
 };

@@ -13,5 +13,11 @@ export default {
   },
   setSelectedGenre(state, payload) {
     state.selectedGenre = payload;
+  },
+  setSearchValue(state, payload) {
+    state.searchValue = payload;
+  },
+  setIsReload(state) {
+    state.isReload = false;
   }
 };

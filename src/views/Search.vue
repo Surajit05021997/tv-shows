@@ -41,12 +41,16 @@ export default {
     };
   },
   created() {
-    this.getTvShowSearchResult(this.searchInput);
+    if(this.isReload === false) {
+      this.getTvShowSearchResult(this.searchInput);
+    } else {
+      this.$router.push('/');
+    }
   },
   computed: {
-    ...mapState(['searchResult']),
+    ...mapState(['searchResult', 'searchValue', 'isReload']),
     searchInput() {
-      return this.$route.params.searchInput;
+      return this.searchValue;
     },
   },
   methods: {
@@ -78,16 +82,6 @@ export default {
   box-sizing: border-box;
   padding-top: 52.67px;
   padding-bottom: 24px;
-}
-.search-bar-container {
-  margin: 20px;
-}
-#search-btn {
-  background-color: rgb(221, 25, 25);
-  border: none;
-  color: white;
-  border-radius: 4px;
-  margin: 5px;
 }
 .search-result-container {
   display: flex;

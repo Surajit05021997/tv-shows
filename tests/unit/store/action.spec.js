@@ -57,10 +57,18 @@ describe('In action', () => {
     })
   });
 
-  describe('In getSelectedGenre action', () => {
-    it('should commit setSelectedGenre mutationn', () => {
-      actions.getSelectedGenre({ commit }, 'Drama');
-      expect(commit).toHaveBeenCalledWith('setSelectedGenre', 'Drama');
-    });
+  it('should commit setSelectedGenre mutationn when getSelectedGenre action is called', () => {
+    actions.getSelectedGenre({ commit }, 'Drama');
+    expect(commit).toHaveBeenCalledWith('setSelectedGenre', 'Drama');
+  });
+
+  it('should commit setSearchValue mutationn when getSearchValue action is called', () => {
+    actions.getSearchValue({ commit }, 'Dark');
+    expect(commit).toHaveBeenCalledWith('setSearchValue', 'Dark');
+  });
+
+  it('should commit setIsReload mutationn when changeIsReload action is called', () => {
+    actions.changeIsReload({ commit });
+    expect(commit).toHaveBeenCalledWith('setIsReload');
   });
 });

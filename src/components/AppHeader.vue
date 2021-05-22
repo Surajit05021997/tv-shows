@@ -7,7 +7,7 @@
         <div class="search-box">
           <form @submit.prevent>
             <input id="search-field" type="text" v-model.trim="searchInput">
-            <button class="btn" @click="searchShow(searchInput)">search</button>
+            <button id="search-btn" @click="searchShow(searchInput)">search</button>
           </form>
         </div>
     </div>
@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'AppHeader',
   data() {
@@ -23,17 +25,18 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['getSearchValue', 'changeIsReload']),
     searchShow(searchInput) {
-      if(this.$route.path !== `/search/${searchInput}` && searchInput !== '')
+      if(searchInput !== '')
       {
-        this.$router.push({
-        name: 'Search',
-        params: {
-          searchInput,
-        },
-      });
+        this.changeIsReload();
+        this.getSearchValue(searchInput);
+        if(this.$route.path !== `/search`)
+        {
+          this.$router.push('/search');
+        }
+        this.searchInput = '';
       }
-      this.searchInput = '';
     },
   },
 };
@@ -65,7 +68,7 @@ a {
 #search-field {
   width: 30vw;
 }
-.btn {
+#search-btn {
   background-color: rgb(221, 25, 25);
   border: none;
   color: white;

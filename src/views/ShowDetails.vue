@@ -11,7 +11,6 @@
           <div class="show-info">
             <p class="show-summary" v-html="showDetails.summary"></p>
             <h3><b>GENRES</b></h3><p>{{genres || 'N/A'}}</p>
-            <h3><b>RATING</b></h3><p>{{ rating || 'N/A'}}</p>
             <h3><b>LANGUAGE</b></h3><p>{{showDetails.language || 'N/A'}}</p>
             <h3><b>TYPE</b></h3><p>{{showDetails.type || 'N/A'}}</p>
             <h3><b>OFFICIAL SITE</b></h3><a :href="showDetails.officialSite" target="_blank">{{showDetails.officialSite || 'N/A'}}</a>
@@ -60,9 +59,6 @@ export default {
   },
   computed: {
     ...mapState(['showDetails', 'cast']),
-    rating() {
-      return this.showDetails.rating.average;
-    },
     poster() {
       if(this.showDetails.image) {
         return this.showDetails.image.original;

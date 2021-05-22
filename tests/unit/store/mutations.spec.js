@@ -46,7 +46,7 @@ describe('In mutations', () => {
     expect(state.cast).toEqual(payload);
   });
 
-  it('it should mutat selectedGenre', () => {
+  it('should mutat selectedGenre', () => {
     const state = {
       selectedGenre: '',
     };
@@ -54,4 +54,21 @@ describe('In mutations', () => {
     mutations.setSelectedGenre(state, payload);
     expect(state.selectedGenre).toBe('Action');
   })
+
+  it('should mutate searchValue', () => {
+    const state = {
+      searchValue: '',
+    };
+    const payload = 'Dark';
+    mutations.setSearchValue(state, payload);
+    expect(state.searchValue).toBe('Dark');
+  });
+
+  it('should mutate isReload', () => {
+    const state = {
+      isReload: true,
+    }
+    mutations.setIsReload(state);
+    expect(state.isReload).toBe(false);
+  });
 });

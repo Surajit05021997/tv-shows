@@ -10,9 +10,11 @@ export default new Vuex.Store({
   state: {
     allShows: [],
     showDetails: {},
-    searchResult: [],
+    searchResult: null,
     cast: [],
     selectedGenre: '',
+    searchValue: '',
+    isReload: true,
   },
   getters,
   mutations,

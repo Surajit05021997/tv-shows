@@ -10,6 +10,8 @@ describe('In Search view', () => {
         {show:{"id":1,"name":"Dark Times","rating":{"average":6.6},"genres":["Action","Thriller"]}},
         {show:{"id":2,"name":"The Dark","rating":{"average":9.2},"genres":["Drama","Horror"]}},
       ],
+      searchValue: 'Dark',
+      isReload: false,
     },
     actions: {
       getSearchResult: jest.fn(),
@@ -26,10 +28,8 @@ describe('In Search view', () => {
       localVue,
       store,
       mocks: {
-        $route: {
-          params: {
-            searchInput: 'Dark',
-          },
+        $router: {
+          push: jest.fn(),
         },
       },
     });

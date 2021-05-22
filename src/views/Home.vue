@@ -14,7 +14,7 @@
         <h2><b>Shows By Genre</b></h2>
         <h3>{{selectedGenre}} Shows</h3>
         <select v-model="selectedGenre">
-          <option v-for="option in getAllGenres" :key="option" v-bind:value="option">
+          <option v-for="option in getAllGenres" :key="option" :value="option">
             {{ option }}
           </option>
         </select>
