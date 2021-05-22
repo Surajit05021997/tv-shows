@@ -13,7 +13,7 @@
             <h3><b>GENRES</b></h3><p>{{genres || 'N/A'}}</p>
             <h3><b>LANGUAGE</b></h3><p>{{showDetails.language || 'N/A'}}</p>
             <h3><b>TYPE</b></h3><p>{{showDetails.type || 'N/A'}}</p>
-            <h3><b>OFFICIAL SITE</b></h3><a :href="showDetails.officialSite" target="_blank">{{showDetails.officialSite || 'N/A'}}</a>
+            <h3><b>OFFICIAL SITE</b></h3><a :href="showDetails.officialSite" target="_blank">{{showDetails.officialSite ? 'Click Me' : 'N/A'}}</a>
           </div>
         </div>
       </div>
