@@ -1,6 +1,6 @@
 <template>
   <div class="show-details">
-    <div v-if="!isLoading && !error">
+    <div v-if="!isDetailsLoading && !isCastLoading && !error">
       <div class="main-container">
         <button id="back-btn" @click="$router.go(-1)">Back</button>
         <div class="poster-container">
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div v-else-if="!isLoading && error">
+    <div v-else-if="!isDetailsLoading && !isCastLoading && error">
       <error-page :error="error"></error-page>
     </div>
 
@@ -52,7 +52,8 @@ export default {
   },
   data() {
     return {
-      isLoading: false,
+      isDetailsLoading: false,
+      isCastLoading: false,
       error: null,
     };
   },
@@ -86,20 +87,22 @@ export default {
   methods: {
     ...mapActions(['getShowDetails', 'getCast']),
     async getTvShowDetails(id) {
-      this.isLoading = true;
+      this.isDetailsLoading = true;
       try {
         await this.getShowDetails(id);
       } catch (error) {
         this.error = error.message;
       }
+      this.isDetailsLoading = false;
     },
     async getShowCast(id) {
+      this.isCastLoading = true;
       try {
         await this.getCast(id);
       } catch (error) {
         this.error = error.message;
       }
-      this.isLoading = false;
+      this.isCastLoading = false;
     },
     castImage(individual) {
       if(individual.person.image) {
