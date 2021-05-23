@@ -4,7 +4,7 @@
       <div class="main-container">
         <button id="back-btn" @click="$router.go(-1)">Back</button>
         <div class="poster-container">
-          <img class="show-image" :src="poster" alt="Show Image">
+          <img class="show-image" :src="poster" alt="Show Image | Refresh if image doesn't load">
         </div>
         <div class="details-container">
           <h1><b>{{showDetails.name}}</b></h1>
@@ -19,9 +19,12 @@
       </div>
       <div class="cast-container">
         <h3><b>CAST</b></h3>
-        <div class="cast-poster-container">
-          <div class="cast" v-for="(individual, index) in cast" :key="index">
-            <img class="cast-image" :src="castImage(individual)" alt="Person Image">
+        <div v-if="filteredCast === null || filteredCast === undefined || filteredCast.length === 0">
+          <h4><b>No Cast Available</b></h4>
+        </div>
+        <div class="cast-poster-container" v-else>
+          <div class="cast" v-for="(individual, index) in filteredCast" :key="index">
+            <img class="cast-image" :src="castImage(individual)" alt="Person Image | Refresh if image doesn't load">
             <p>{{individual.person.name}}</p>
           </div>
         </div>
@@ -70,6 +73,14 @@ export default {
         return this.showDetails.genres.join(', ');
       }
       return null;
+    },
+    filteredCast() {
+      return this.cast.filter((cast) => {
+        if(cast.person.image) {
+          return true;
+        }
+        return false;
+      });
     },
   },
   methods: {

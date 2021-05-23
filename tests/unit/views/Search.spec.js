@@ -7,8 +7,9 @@ describe('In Search view', () => {
   const storeObj = {
     state: {
       searchResult: [
-        {show:{"id":1,"name":"Dark Times","rating":{"average":6.6},"genres":["Action","Thriller"]}},
-        {show:{"id":2,"name":"The Dark","rating":{"average":9.2},"genres":["Drama","Horror"]}},
+        {show:{"id":1,"name":"Dark Times","rating":{"average":6.6},"image":"show Image","genres":["Action","Thriller"]}},
+        {show:{"id":2,"name":"The Dark","rating":{"average":9.2},"image":"show Image","genres":["Drama","Horror"]}},
+        {show:{"id":3,"name":"Dark Place","rating":{"average":7.2},"genres":["Drama","Horror"]}},
       ],
       searchValue: 'Dark',
       isReload: false,

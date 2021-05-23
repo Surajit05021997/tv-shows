@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.27% </span>
+                <span class="strong">80.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/22</span>
+                <span class='fraction'>21/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.27% </span>
+                <span class="strong">80.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/22</span>
+                <span class='fraction'>21/26</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -235,7 +235,21 @@
 <a name='L177'></a><a href='#L177'>177</a>
 <a name='L178'></a><a href='#L178'>178</a>
 <a name='L179'></a><a href='#L179'>179</a>
-<a name='L180'></a><a href='#L180'>180</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -307,6 +321,14 @@
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -420,7 +442,7 @@
       &lt;div class="main-container"&gt;
         &lt;button id="back-btn" @click="$router.go(-1)"&gt;Back&lt;/button&gt;
         &lt;div class="poster-container"&gt;
-          &lt;img class="show-image" :src="poster" alt="Show Image"&gt;
+          &lt;img class="show-image" :src="poster" alt="Show Image | Refresh if image doesn't load"&gt;
         &lt;/div&gt;
         &lt;div class="details-container"&gt;
           &lt;h1&gt;&lt;b&gt;{{showDetails.name}}&lt;/b&gt;&lt;/h1&gt;
@@ -435,9 +457,12 @@
       &lt;/div&gt;
       &lt;div class="cast-container"&gt;
         &lt;h3&gt;&lt;b&gt;CAST&lt;/b&gt;&lt;/h3&gt;
-        &lt;div class="cast-poster-container"&gt;
-          &lt;div class="cast" v-for="(individual, index) in cast" :key="index"&gt;
-            &lt;img class="cast-image" :src="castImage(individual)" alt="Person Image"&gt;
+        &lt;div v-if="filteredCast === null || filteredCast === undefined || filteredCast.length === 0"&gt;
+          &lt;h4&gt;&lt;b&gt;No Cast Available&lt;/b&gt;&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class="cast-poster-container" v-else&gt;
+          &lt;div class="cast" v-for="(individual, index) in filteredCast" :key="index"&gt;
+            &lt;img class="cast-image" :src="castImage(individual)" alt="Person Image | Refresh if image doesn't load"&gt;
             &lt;p&gt;{{individual.person.name}}&lt;/p&gt;
           &lt;/div&gt;
         &lt;/div&gt;
@@ -486,6 +511,14 @@ export default {
         return this.showDetails.genres.join(', ');
       }
 <span class="cstat-no" title="statement not covered" >      return null;</span>
+    },
+    filteredCast() {
+      return this.cast.filter((cast) =&gt; {
+        if(cast.person.image) {
+          return true;
+        }
+        return false;
+      });
     },
   },
   methods: {
@@ -600,7 +633,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun May 23 2021 13:53:00 GMT+0530 (India Standard Time)
+                at Sun May 23 2021 17:49:51 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="..\..\prettify.js"></script>

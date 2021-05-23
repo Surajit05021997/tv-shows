@@ -3,7 +3,7 @@
     <div v-if="!isLoading && !error && shows !== null">
       <h2>Search result for: {{searchInput}}</h2>
       <div class="search-result-container" v-if="shows.length !== 0">
-        <div class="show" v-for="item in shows" :key="item.show.id">
+        <div class="show" v-for="item in filteredShow" :key="item.show.id">
           <show-card :show="item.show"></show-card>
         </div>
       </div>
@@ -51,6 +51,14 @@ export default {
     ...mapState(['searchResult', 'searchValue', 'isReload']),
     searchInput() {
       return this.searchValue;
+    },
+    filteredShow() {
+      return this.shows.filter((show) => {
+        if(show.show.image) {
+          return true;
+        }
+        return false;
+      });
     },
   },
   methods: {

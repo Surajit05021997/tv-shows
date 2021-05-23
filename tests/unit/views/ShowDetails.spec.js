@@ -1,6 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import ShowDetails from '@/views/ShowDetails.vue';
-import BootstrapVue from 'bootstrap-vue';
 import Vuex from 'vuex';
 
 describe('In ShowDetails view', () => {
@@ -24,6 +23,7 @@ describe('In ShowDetails view', () => {
       cast: [
         {"person":{"id":1,"name":"Mike Vogel","image":{"medium":"https://static.tvmaze.com/uploads/images/medium_portrait/0/1815.jpg"}}},
         {"person":{"id":2,"name":"Rachelle Lefevre","image":{"medium":"https://static.tvmaze.com/uploads/images/medium_portrait/82/207417.jpg"}}},
+        {"person":{"id":3,"name":"Alan Tudyk"}},
       ],
     },
     actions: {
@@ -34,7 +34,6 @@ describe('In ShowDetails view', () => {
 
   beforeEach(() => {
     const localVue = createLocalVue();
-    localVue.use(BootstrapVue);
     localVue.use(Vuex);
 
     const store = new Vuex.Store(storeObj);
