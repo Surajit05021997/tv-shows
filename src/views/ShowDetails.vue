@@ -166,7 +166,7 @@ export default {
 .show-spinner {
   margin: 40vh 0px;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px), only screen and (orientation: portrait) {
   .main-container {
     flex-direction: column;
   }
