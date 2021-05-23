@@ -104,9 +104,6 @@ export default {
 .show-container {
   margin: 20px 0px;
 }
-.genre-container {
-  margin-bottom: 20px;
-}
 .shows {
   display: flex;
   overflow-y: auto;

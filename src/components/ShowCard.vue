@@ -33,9 +33,6 @@ export default {
 </script>
 
 <style scoped>
-.show-image {
-  width: 150px;
-}
 a {
   color: black;
   text-decoration: none;
@@ -43,6 +40,9 @@ a {
 }
 a:hover {
   color: rgb(221, 25, 25);
+}
+.show-image {
+  width: 150px;
 }
 @media only screen and (max-width: 768px) {
   .show-image {

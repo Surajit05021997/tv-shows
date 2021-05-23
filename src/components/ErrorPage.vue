@@ -1,6 +1,6 @@
 <template>
   <div class="error-page">
-    <h3>{{error}}</h3>
+    <h2>{{error}}</h2>
     <button id="reload-btn" @click="reloadPage">Reload</button>
   </div>
 </template>
@@ -32,5 +32,6 @@ export default {
   color: white;
   border-radius: 4px;
   margin: 5px;
+  cursor: pointer;
 }
 </style>

@@ -28,7 +28,7 @@ describe('In ErrorPage Component', () => {
 
   it('error rendered properly through prop data', () => {
     expect(wrapper.props().error).toBe('Some Error Occured!!');
-    expect(wrapper.find('h3').text()).toBe('Some Error Occured!!');
+    expect(wrapper.find('.error-page').text()).toContain('Some Error Occured!!');
   });
 
   it('should call reload on reload button click', () => {

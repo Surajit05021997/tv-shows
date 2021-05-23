@@ -1,15 +1,15 @@
 <template>
   <div class="app-header">
     <div class="my-nav">
-        <div class="brand">
-          <router-link  to="/"><h2 id="logo-name"><b>TV MAZE</b></h2></router-link>
-        </div>
-        <div class="search-box">
-          <form @submit.prevent>
-            <input id="search-field" type="text" v-model.trim="searchInput">
-            <button id="search-btn" @click="searchShow(searchInput)">search</button>
-          </form>
-        </div>
+      <div class="brand">
+        <router-link  to="/"><h2 id="logo-name"><b>TV MAZE</b></h2></router-link>
+      </div>
+      <div class="search-box">
+        <form @submit.prevent>
+          <input id="search-field" type="text" v-model.trim="searchInput">
+          <button id="search-btn" @click="searchShow(searchInput)">search</button>
+        </form>
+      </div>
     </div>
   </div>
 </template>

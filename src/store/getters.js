@@ -1,6 +1,5 @@
 export default {
   getTop20Shows(state) {
-    const top20Shows = [];
     const [...allShows] = state.allShows;
     allShows.sort((obj1, obj2) => {
       const [rating1] = Object.values(obj1.rating);
@@ -13,10 +12,7 @@ export default {
       }
       return 0;
     });
-    for (let index = 0; index < 20; index += 1) {
-      top20Shows.push(allShows[index]);
-    }
-    return top20Shows;
+    return allShows.slice(0,20);
   },
   getShowListByGenre(state) {
     const showList = [];

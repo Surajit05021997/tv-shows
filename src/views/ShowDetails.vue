@@ -9,7 +9,7 @@
         <div class="details-container">
           <h1><b>{{showDetails.name}}</b></h1>
           <div class="show-info">
-            <p class="show-summary" v-html="showDetails.summary"></p>
+            <p v-html="showDetails.summary"></p>
             <h3><b>GENRES</b></h3><p>{{genres || 'N/A'}}</p>
             <h3><b>LANGUAGE</b></h3><p>{{showDetails.language || 'N/A'}}</p>
             <h3><b>TYPE</b></h3><p>{{showDetails.type || 'N/A'}}</p>
@@ -124,18 +124,15 @@ export default {
   background-color: rgba(221, 25, 25, 1);
   color: rgba(255, 255, 255, 1);
 }
+.show-image {
+  height: 80vh;
+  padding: 10px;
+}
 .details-container {
   padding-right: 10px;
 }
 .show-info {
   text-align: left;
-}
-.show-image {
-  height: 80vh;
-  padding: 10px;
-}
-.show-spinner {
-  margin: 40vh 0px;
 }
 .cast-container {
   margin-top: 20px;
@@ -151,6 +148,9 @@ export default {
 }
 .cast-image {
   width: 100px;
+}
+.show-spinner {
+  margin: 40vh 0px;
 }
 @media only screen and (max-width: 768px) {
   .main-container {
