@@ -55,4 +55,21 @@ describe('In Search view', () => {
   it('should show correct now of show after search', () => {
     expect(wrapper.findAll('.show').length).toBe(2);
   });
+
+  it('should redirect to homepage when isReload is true', () => {
+    storeObj.state.isReload = true;
+    const localVue = createLocalVue();
+    localVue.use(Vuex);
+    const store = new Vuex.Store(storeObj);
+    wrapper = shallowMount(Search, {
+      localVue,
+      store,
+      mocks: {
+        $router: {
+          push: jest.fn(),
+        },
+      },
+    });
+    expect(wrapper.vm.$router.push).toHaveBeenCalledWith('/');
+  });
 });
