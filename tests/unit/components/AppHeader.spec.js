@@ -10,7 +10,7 @@ describe('In AppHeader component', () => {
     actions: {
       getSearchValue: jest.fn(),
       changeIsReload: jest.fn(),
-    }
+    },
   };
 
   beforeEach(() => {

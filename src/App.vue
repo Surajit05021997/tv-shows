@@ -16,7 +16,7 @@ export default {
     AppHeader,
     AppFooter,
   },
-}
+};
 </script>
 
 <style>

@@ -53,7 +53,7 @@ describe('In mutations', () => {
     const payload = 'Action';
     mutations.setSelectedGenre(state, payload);
     expect(state.selectedGenre).toBe('Action');
-  })
+  });
 
   it('should mutate searchValue', () => {
     const state = {

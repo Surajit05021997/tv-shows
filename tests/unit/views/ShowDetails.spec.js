@@ -35,9 +35,7 @@ describe('In ShowDetails view', () => {
   beforeEach(() => {
     const localVue = createLocalVue();
     localVue.use(Vuex);
-
     const store = new Vuex.Store(storeObj);
-
     wrapper = shallowMount(ShowDetails, {
       localVue,
       store,
@@ -48,7 +46,7 @@ describe('In ShowDetails view', () => {
         $router: {
           go: jest.fn(),
         },
-      }
+      },
     });
   });
 

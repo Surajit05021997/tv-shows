@@ -31,5 +31,5 @@ describe('In PageNotFound view', () => {
   it('should redirect to home page when Go To Home is clicked', () => {
     wrapper.find('#home-btn').trigger('click');
     expect(wrapper.vm.$router.push).toHaveBeenCalledWith('/');
-  })
+  });
 });
