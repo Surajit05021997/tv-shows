@@ -30,13 +30,4 @@ describe('In ErrorPage Component', () => {
     expect(wrapper.props().error).toBe('Some Error Occured!!');
     expect(wrapper.find('.error-page').text()).toContain('Some Error Occured!!');
   });
-
-  it('should call reload on reload button click', () => {
-    const { location } = window;
-    delete window.location;
-    window.location = { reload: jest.fn() };
-    wrapper.find('#reload-btn').trigger('click');
-    expect(window.location.reload).toHaveBeenCalled();
-    window.location = location;
-  });
 });
