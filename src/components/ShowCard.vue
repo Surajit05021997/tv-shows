@@ -46,12 +46,12 @@ a:hover {
 }
 @media only screen and (max-width: 768px) {
   .show-image {
-  width: 120px;
+    width: 120px;
   }
 }
 @media only screen and (max-width: 480px) {
   .show-image {
-  width: 100px;
+    width: 100px;
   }
 }
 </style>

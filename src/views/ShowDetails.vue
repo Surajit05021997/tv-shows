@@ -19,7 +19,7 @@
       </div>
       <div class="cast-container">
         <h3><b>CAST</b></h3>
-        <div v-if="filteredCast === null || filteredCast === undefined || filteredCast.length === 0">
+        <div v-if="filteredCast.length === 0">
           <h4><b>No Cast Available</b></h4>
         </div>
         <div class="cast-poster-container" v-else>

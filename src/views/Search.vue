@@ -16,7 +16,7 @@
       <error-page :error="error"></error-page>
     </div>
 
-    <div class="show-spinner" v-else-if="isLoading">
+    <div class="show-spinner" v-else>
       <h2>LOADING...</h2>
     </div>
   </div>

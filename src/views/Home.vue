@@ -106,7 +106,7 @@ export default {
 }
 .shows {
   display: flex;
-  overflow-y: auto;
+  overflow: auto;
 }
 .show {
   margin: 10px;
