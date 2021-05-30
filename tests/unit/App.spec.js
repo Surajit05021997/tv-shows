@@ -20,11 +20,15 @@ describe('In App Component', () => {
     wrapper.destroy();
   });
 
-  it('is a vue instance', () => {
-    expect(wrapper.isVueInstance).toBeTruthy();
-  });
-
   it('should render the correct markup', () => {
     expect(wrapper.html()).toContain('<div id="app">');
+  });
+
+  it('should contain AppHeader child component', () => {
+    expect(wrapper.html()).toContain('<app-header-stub></app-header-stub>');
+  }); 
+
+  it('should contain AppFooter child component', () => {
+    expect(wrapper.html()).toContain('<app-footer-stub></app-footer-stub>');
   });
 });

@@ -35,21 +35,17 @@ describe('In AppHeader component', () => {
     wrapper.destroy();
   });
 
-  it('is a vue instance', () => {
-    expect(wrapper.isVueInstance).toBeTruthy();
-  });
-
   it('should render the correct markup', () => {
     expect(wrapper.html()).toContain('<div class="app-header">');
   });
 
-  it('should route to search component when search button is clicked', async ()=> {
-    await wrapper.find('#search-btn').trigger('click');
+  it('should route to search component when search button is clicked', ()=> {
+    wrapper.find('#search-btn').trigger('click');
     expect(wrapper.vm.$route.path).toBe('/search');
   });
 
-  it('should call changeIsReload and changeIsReload when search button is clicked', async () => {
-    await wrapper.find('#search-btn').trigger('click');
+  it('should call changeIsReload and changeIsReload when search button is clicked', () => {
+    wrapper.find('#search-btn').trigger('click');
     expect(storeObj.actions.getSearchValue).toHaveBeenCalled();
     expect(storeObj.actions.changeIsReload).toHaveBeenCalled();
   });

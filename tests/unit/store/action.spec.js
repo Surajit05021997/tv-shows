@@ -14,7 +14,7 @@ describe('In action', () => {
 
     it('Rejected response', async () => {
       getAllShowsService.mockImplementation(() => Promise.reject(new Error('Some error occured!!')));
-      await expect(actions.getAllShows({ commit })).rejects.toThrow('Some error occured!!');
+      await expect(actions.getAllShows({ commit })).rejects.toBeInstanceOf(Error);
     });
   });
 
@@ -27,7 +27,7 @@ describe('In action', () => {
 
     it('Rejected response', async () => {
       getShowDetailsService.mockImplementation(() => Promise.reject(new Error('Some error occured!!')));
-      await expect(actions.getShowDetails({ commit }, 1)).rejects.toThrow('Some error occured!!');
+      await expect(actions.getShowDetails({ commit }, 1)).rejects.toBeInstanceOf(Error);
     });
   });
 
@@ -40,7 +40,7 @@ describe('In action', () => {
 
     it('Rejected response', async () => {
       getSearchResultService.mockImplementation(() => Promise.reject(new Error('Some error occured!!')));
-      await expect(actions.getSearchResult({ commit }, 'Under the Dome')).rejects.toThrow('Some error occured!!');
+      await expect(actions.getSearchResult({ commit }, 'Under the Dome')).rejects.toBeInstanceOf(Error);
     });
   });
 
@@ -53,7 +53,7 @@ describe('In action', () => {
 
     it('Rejected response', async () => {
       getCastService.mockImplementation(() => Promise.reject(new Error('Some error occured!!')));
-      await expect(actions.getCast({ commit }, 1)).rejects.toThrow('Some error occured!!');
+      await expect(actions.getCast({ commit }, 1)).rejects.toBeInstanceOf(Error);
     });
   });
 

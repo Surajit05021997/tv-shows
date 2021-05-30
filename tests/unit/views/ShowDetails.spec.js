@@ -54,16 +54,11 @@ describe('In ShowDetails view', () => {
     wrapper.destroy();
   });
 
-  it('is a vue instance', () => {
-    expect(wrapper.isVueInstance).toBeTruthy();
-  });
-
   it('should render the correct markup', () => {
     expect(wrapper.html()).toContain('<div class="show-details">');
   });
 
-  it('should call getShowDetails action when getShowDetails method is called', () => {
-    wrapper.vm.getTvShowDetails(1);
+  it('should call getShowDetails action when the component is created', () => {
     expect(storeObj.actions.getShowDetails).toHaveBeenCalled();
   });
 
@@ -73,8 +68,7 @@ describe('In ShowDetails view', () => {
     expect(wrapper.html()).toContain('<p>Scripted</p>');
   });
 
-  it('should call getCast action when getCast method is called', () => {
-    wrapper.vm.getShowCast(1);
+  it('should call getCast action when the component is created', () => {
     expect(storeObj.actions.getCast).toHaveBeenCalled();
   });
 

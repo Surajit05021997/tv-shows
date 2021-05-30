@@ -89,10 +89,6 @@ describe('In Home view', () => {
     wrapper.destroy();
   });
 
-  it('is a vue instance', () => {
-    expect(wrapper.isVueInstance).toBeTruthy();
-  });
-
   it('should render the correct markup', () => {
     expect(wrapper.html()).toContain('<div class="home">');
   });
@@ -101,12 +97,15 @@ describe('In Home view', () => {
     expect(wrapper.findAll('.show').length).toBe(30);
   });
 
-  it('should call getAllShows action when getAllTvShows method is called', () => {
-    wrapper.vm.getAllTvShows();
+  it('should call getAllShows action when the component is created', () => {
     expect(storeObj.actions.getAllShows).toHaveBeenCalled();
   });
 
-  it('should call getSelectedGenre when selectedGenre changes', async () => {
+  it('should call getSelectedGenre action when the component is created', () => {
+    expect(storeObj.actions.getSelectedGenre).toHaveBeenCalled();
+  });
+
+  it('should call getSelectedGenre action when selectedGenre changes', async () => {
     await wrapper.setData({selectedGenre: 'Comedy'});
     expect(storeObj.actions.getSelectedGenre).toHaveBeenCalledTimes(6);
   });  

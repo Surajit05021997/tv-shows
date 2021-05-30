@@ -40,10 +40,6 @@ describe('In Search view', () => {
     wrapper.destroy();
   });
 
-  it('is a vue instance', () => {
-    expect(wrapper.isVueInstance).toBeTruthy();
-  });
-
   it('should render the correct markup', () => {
     expect(wrapper.html()).toContain('<div class="search">');
   });
