@@ -2,7 +2,7 @@
   <div class="app-header">
     <div class="my-nav">
       <div class="brand">
-        <router-link  to="/"><h2 id="logo-name"><b>TV MAZE</b></h2></router-link>
+        <router-link  to="/"><h2 id="logo-name"><b>TV SHOWSSS</b></h2></router-link>
       </div>
       <div class="search-box">
         <form @submit.prevent>
