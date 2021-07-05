@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://api.tvmaze.com';
+const baseURL = 'https://api.tvmaze.com';
 
 function getAllShowsService() {
   return axios.get(`${baseURL}/shows`);
